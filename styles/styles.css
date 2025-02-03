@@ -1,1 +1,59 @@
-
+/* Убираем полосы прокрутки */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Убираем полосы прокрутки */
+  }
+  
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видео будет растягиваться, сохраняя пропорции */
+    z-index: -1; /* Видео будет на заднем фоне */
+  }
+  
+  /* Контейнер для текста */
+  .text-container {
+    position: absolute;
+    top: 50%; /* Позиция текста по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Центрирование текста */
+    color: white;
+    font-size: 3rem; /* Размер текста */
+    font-family: 'Courier New', Courier, monospace; /* Шрифт для эффекта печати */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block; /* Контейнер для текста будет иметь ширину по содержимому */
+    width: 0; /* Начальная ширина текста - 0 */
+    border-right: .15em solid white; /* Имитация курсора */
+    animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Анимации печатания и стирания */
+    text-align: center; /* Текст выравнивается по центру */
+  }
+  
+  /* Эффект печатающегося текста */
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 40%; /* Текст будет заполнять ширину по мере появления */
+    }
+  }
+  
+  /* Эффект мигающего курсора */
+  @keyframes blink {
+    0% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: white;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
+  
